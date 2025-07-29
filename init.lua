@@ -34,4 +34,5 @@ require "autocmds"
 
 vim.schedule(function()
   require "mappings"
+  require('telescope').load_extension('enhanced_find_files')
 end)
