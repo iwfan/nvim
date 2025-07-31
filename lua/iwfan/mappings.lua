@@ -11,7 +11,7 @@ map(search_modes, 'N', "'nN'[v:searchforward]", { expr = true, desc = 'Prev sear
 
 -- Emacs-style keybindings
 local emacs_insert = {
-    ['<C-h>'] = { '<BS>', 'Backspace' },
+    ['<C-f>'] = { '<Right>', 'Move Right' },
     ['<C-d>'] = { '<Del>', 'Delete' },
     ['<C-v>'] = { '<C-r>+', 'Paste from clipboard' },
     ['<S-tab>'] = { '<BS>', 'Mapped to backspace' },

@@ -31,8 +31,7 @@ M.nvdash = {
     "                                 ",
   },
   buttons = {
-    { txt = "󰱽  Find File", keys = "Spc p", cmd = "Telescope find_files" },
-    { txt = "  Recent Files", keys = "Spc o", cmd = "Telescope oldfiles" },
+    { txt = "󰱽  Find File", keys = "Spc p", cmd = "Telescope enhanced_find_files" },
     { txt = "󰁯  Restore Session", keys = "Spc r", cmd = "lua require('persistence').load()" },
     { txt = "󱥚  Themes", keys = "Spc t h", cmd = ":lua require('nvchad.themes').open()" },
     { txt = "  Mappings", keys = "Spc c h", cmd = "NvCheatsheet" },
