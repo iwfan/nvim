@@ -144,7 +144,7 @@ local enhanced_find_files = function(opts)
   -- 创建picker
   pickers
     .new(opts, {
-      prompt_title = opts.prompt_title or "Enhanced Find Files",
+      prompt_title = opts.prompt_title or "Find Files",
       results_title = opts.results_title or "Files",
       finder = finders.new_table {
         results = results,
