@@ -1,7 +1,7 @@
 return {
   {
     "mfussenegger/nvim-lint",
-    event = "User FilePost",
+    event = { "BufReadPost", "BufWritePost", "InsertLeave" },
     opts = {
       -- Event to trigger linters
       events = { "BufWritePost", "BufReadPost", "InsertLeave" },
@@ -109,7 +109,7 @@ return {
         return "make"
       end
     end,
-    event = "User FilePost",
+    cmd = { "AvanteAsk", "AvanteChat", "AvanteToggle" },
     version = false, -- Never set this value to "*"! Never!
     ---@module 'avante'
     ---@type avante.Config

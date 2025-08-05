@@ -96,7 +96,7 @@ return {
           -- mapping query_strings to modes.
           selection_modes = {
             ["@parameter.outer"] = "v", -- charwise
-            ["@function.outer"] = "V", -- linewise
+            ["@function.outer"] = "V",  -- linewise
             ["@class.outer"] = "<c-v>", -- blockwise
           },
           -- If you set this to `true` (default is `false`) then any textobject is
@@ -147,14 +147,14 @@ return {
   {
     "kylechui/nvim-surround",
     version = "*",
-    event = "User FilePost",
+    event = { "BufReadPost", "BufNewFile" },
     opts = {},
   },
   {
     "MagicDuck/grug-far.nvim",
-    event = "User FilePost",
+    cmd = "GrugFar",
     opts = {
-      windowCreationCommand = "botright split",
+      windowCreationCommand = "tabnew",
       transient = true,
     },
     keys = {
@@ -164,7 +164,7 @@ return {
         function()
           require("grug-far").open { prefills = { search = vim.fn.expand "<cword>" } }
         end,
-        desc = "Spectre",
+        desc = "GrugFar",
       },
       {
         "<A-f>",
@@ -172,20 +172,20 @@ return {
         function()
           require("grug-far").with_visual_selection { prefills = { paths = vim.fn.expand "%" } }
         end,
-        desc = "Spectre",
+        desc = "GrugFar",
       },
     },
   },
   {
     "andymass/vim-matchup",
-    event = "User FilePost",
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
       vim.g.matchup_matchparen_offscreen = {}
     end,
   },
   {
     "mg979/vim-visual-multi",
-    event = "User FilePost",
+    keys = { "<C-n>", "<A-n>", "<A-p>" },
     init = function()
       vim.g.VM_default_mappings = 0
       vim.g.VM_maps = {
@@ -196,7 +196,6 @@ return {
   },
   {
     "folke/flash.nvim",
-    event = "User FilePost",
     opts = {
       modes = {
         search = {
@@ -218,18 +217,25 @@ return {
   {
     "folke/ts-comments.nvim",
     opts = {},
-    event = "User FilePost",
+    event = { "BufReadPost", "BufNewFile" },
     enabled = vim.fn.has "nvim-0.10.0" == 1,
   },
   {
-    "folke/persistence.nvim",
-    event = "BufReadPre", -- this will only start session saving when an actual file was opened
-    opts = {
-      -- add any custom options here
-    },
-  },
-  {
     "johmsalas/text-case.nvim",
-    opts = {},
-  },
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("textcase").setup({})
+      require("telescope").load_extension("textcase")
+    end,
+    keys = {
+      "ga", -- Default invocation prefix
+      { "ga.", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Telescope" },
+    },
+    cmd = {
+      "TextCaseOpenTelescope",
+      "TextCaseOpenTelescopeQuickChange",
+      "TextCaseOpenTelescopeLSPChange",
+      "TextCaseStartReplacingCommand",
+    },
+  }
 }
