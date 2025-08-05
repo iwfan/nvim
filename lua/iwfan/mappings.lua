@@ -77,7 +77,6 @@ map("n", "]<space>", ":<c-u>put =repeat(nr2char(10), v:count1)<CR>", { silent = 
 
 -- Disabled keys
 map("n", "<C-q>", "<Nop>")
-map("n", "<C-y>", "<Nop>")
 map("n", "<C-t>", "<Nop>")
 map("n", "<C-,>", "<Nop>")
 map("n", "<C-.>", "<Nop>")
