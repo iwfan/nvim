@@ -185,6 +185,7 @@ return {
   },
   {
     "mg979/vim-visual-multi",
+    event = { "BufReadPost", "BufNewFile" },
     keys = { "<C-n>", "<A-n>", "<A-p>" },
     init = function()
       vim.g.VM_default_mappings = 0
