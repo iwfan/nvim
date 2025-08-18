@@ -26,7 +26,6 @@ vim.o.swapfile = false                              -- Don't create swap files
 -- === 行为设置 ===
 vim.o.confirm = true                                -- Get alert when quit on an unsaved buffer
 vim.o.inccommand = 'nosplit'                        -- Preview substitutions live
-vim.o.jumpoptions = "stack,view"                    -- Jump list behavior
 vim.opt.shortmess:append("c")                       -- Don't show completion messages
 -- vim.o.virtualedit = 'block'                      -- Useful for block selections
 
